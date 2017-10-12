@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GDG WEBDEV 17.3.1</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+*{
+	
+	font-size: 20px;
+
+}
+body{
+	font-family: 'Courgette', cursive;
+	background-color:#4489ba;
+	display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		border:10px solid darkblue;
+		box-shadow:inset  5px 5px 20px black;
+}
+#heading{
+	text-shadow: 2px 2px 3px white;
+}
+	.sub{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-bottom:20px;
+		box-shadow: 0px 4px 8px grey;
+		background-color:aliceblue;
+		height:200px;
+		font-family: 'Courgette', cursive;
+		width:90%;
+	}
+
+	#circle {
+width:150px;
+height:150px;
+border-radius:100px;
+background-color:blue;
+box-shadow: 5px 5px 20px black;
+}
+</style>
+<body>
+
+<p ><h1 id="heading">GDG Webdev 17.3.1</h1></p>
+
+<div class="sub">
+<button id="myButton" class="btn btn-primary">You know you want to click me...</button>
+<button onclick="alert('Hi')" id="my"  class="btn btn-success">Click Me!</button>
+</div>
+
+<div class="sub">
+	<p id="text">Some text</p>
+</div>
+
+<div class="sub">
+	<p>What is the weather?</p>
+	<input id="weather" />
+	<button id="myButton1" class="btn btn-success">Submit</button>
+</div>
+
+<div class="sub">
+<button id="stylesChanger" class="btn btn-success">Change the text!</button>
+<div id="firstDiv">This is some text</div>
+</div>
+
+<div class="sub">
+	<button id="textChanger" class="btn btn-success">Change first div text</button>
+	<div id="firstDiv1">This is some text</div>
+	<button id="textAppender" class="btn btn-success">Append some text</button>
+	<div id="secondDiv">Javascript is...</div>
+	<button id="textCreator" class="btn btn-success">Create some text</button>
+	<div id="emptyDiv"></div>
+</div>
+
+<div class="sub">
+	<div id="circle"></div>
+</div>
+
+<div class="sub">
+	<p id="arrayString"></p>
+</div>
+
+<div class="sub">
+	<p>How many fingers am I holding up?</p>
+	<input id="answer" />
+	<button id="myButton2" class="btn btn-success">Submit</button>
+</div>
+
+
+<script type="text/javascript">
+// alert("Page loaded!");
+
+document.getElementById("myButton").onclick=function() {
+alert("Hello how are you ? ");
+}
+
+document.getElementById("text").innerHTML="Some more text";
+
+
+document.getElementById("myButton1").onclick=function() {
+if (document.getElementById("weather").value=="rain") {
+alert ("it's raining");
+} else {
+alert("it's not raining!");
+}
+}
+
+
+var myArray=new Array();
+myArray[0]="pizza";
+myArray[1]="chocolate";
+myOtherArray=["rain","sunshine"];
+myOtherArray.push("snow");
+myOtherArray.splice(2, 0, "hail", "cloudy");
+console.log(myOtherArray);
+console.log(myOtherArray.length);
+document.getElementById("stylesChanger").onclick=function() {
+document.getElementById("firstDiv").innerHTML=myArray;
+}
+
+
+document.getElementById("textChanger").onclick=function() {
+document.getElementById("firstDiv1").innerHTML="This is awesome!";
+}
+document.getElementById("textAppender").onclick=function() {
+document.getElementById("secondDiv").innerHTML=document.getElementById("secondDiv").innerHTML + "great!";
+}
+document.getElementById("textCreator").onclick=function() {
+document.getElementById("emptyDiv").innerHTML="<ul><li>Cat</li><li>Dog</li></ul>";
+}
+
+document.getElementById("circle").onclick=function() {
+document.getElementById("circle").style.display="none";
+}
+
+
+var arrayString="";
+var myArray=["pizza", "chocolate", "crisps"];
+for (var i=0; i<myArray.length; i++) {
+arrayString=arrayString+myArray[i]+" ";
+}
+document.getElementById("arrayString").innerHTML=arrayString;
+
+
+document.getElementById("myButton2").onclick=function() {
+var x=Math.random();
+x=6*x;
+x=Math.floor(x);
+if (x==document.getElementById("answer").value) {
+alert("That's correct!");
+} else {
+alert("That's wrong! My number was "+x);
+}
+}
+</script>
+</body>
+</html>

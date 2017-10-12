@@ -1,0 +1,73 @@
+<html>
+<head>
+     <!-- important links -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+     </script>
+
+     <!-- important functions -->
+     <script>
+
+          // ajax request
+          function showSuggestions(str) {
+              if (str.length == 0) {
+                  document.getElementById("dropdown1").innerHTML = "";
+                  $('.dropdown-button').dropdown('close');
+                  return;
+              } else {
+                  var xmlhttp = new XMLHttpRequest();
+                  xmlhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                           var str =this.responseText;
+                           var res = str.split(" ");
+                           if(str=="-1")
+                                   res=["no suggestions"];
+                           document.getElementById("dropdown1").innerHTML="";
+                           for(var i=0;i<res.length;i++)
+                              document.getElementById("dropdown1").innerHTML +="<li><a href='#!'>"+res[i]+"</a></li><li class='divider'></li>";
+                           $('.dropdown-button').dropdown('open');
+                      }
+                  };
+                  xmlhttp.open("GET", "suggestions.php?q=" + str, true);
+                  xmlhttp.send();
+              }
+          }
+
+
+          //drop down menu
+          $('.dropdown-button').dropdown({
+               inDuration: 300,
+               outDuration: 225,
+               constrainWidth: false, // Does not change width of dropdown to that of the activator
+               hover: true, // Activate on hover
+               gutter: 0, // Spacing from edge
+               belowOrigin: false, // Displays dropdown below the button
+               alignment: 'left', // Displays dropdown with edge aligned to the left of button
+               stopPropagation: false // Stops event propagation
+             }
+           );
+           // $('.sug').dropdown('close');
+
+
+     </script>
+
+</head>
+<body>
+     <div >
+          <img style="margin:112px 0px 30px 0px; margin-left: auto; margin-right:auto; display: block;" height="92" src="images/google.png" width="272" alt="Google"  title="Google" >
+     </div>
+
+
+<div style="justify-content:center; display: flex;">
+     <form>
+          <input id="q" autocomplete="off" name="q" size="80"  onkeyup="showSuggestions(this.value)" >
+     </form>
+     <b>
+</div>
+<div id="sug" class='dropdown-button' data-activates='dropdown1'>
+      <ul id='dropdown1' class='dropdown-content'>
+      </ul>
+</div>
+</body>
+</html>

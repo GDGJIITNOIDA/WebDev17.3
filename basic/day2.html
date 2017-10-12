@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GDG WEBDEV 17.3.1</title>
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+*{
+	
+	font-size: 20px;
+
+}
+body{
+	font-family: 'Courgette', cursive;
+	background-color:#4489ba;
+	display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		border:10px solid darkblue;
+		box-shadow:inset  5px 5px 20px black;
+}
+#heading{
+	text-shadow: 2px 2px 3px white;
+}
+	.sub{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-bottom:20px;
+		box-shadow: 0px 4px 8px grey;
+		background-color:aliceblue;
+		height:200px;
+		font-family: 'Courgette', cursive;
+		width:90%;
+	}
+
+	#circle {
+width:150px;
+height:150px;
+border-radius:100px;
+background-color:blue;
+box-shadow: 5px 5px 20px black;
+}
+#square {
+width:150px;
+height:150px;
+background-color:green;
+box-shadow: 5px 5px 20px black;
+}
+</style>
+<body>
+
+<p ><h1 id="heading">GDG Webdev 17.3.2</h1></p>
+
+<div class="sub">
+<div id="square"></div>
+</div>
+
+<div class="sub">
+<div id="circle"></div>	
+<p>This is some text</p>	
+<iframe src=""></iframe>
+</div>
+
+<div class="sub">
+	<p id="one">This is some text.</p>	
+	<button id="fader" class="btn btn-success">Fade Out</button>	
+	<button id="faderIn" class="btn btn-primary">Fade In</button>
+</div>
+
+
+<script type="text/javascript">
+// $("div").click(function() {	
+// alert("Div Clicked!");	
+// });
+
+// $("#square").click(function() {	
+// $("#square").fadeOut();		
+// });	
+
+$("#circle").hover(function() {	
+$("iframe").attr("src", "http://www.rahul-sharma.org");	
+});
+
+
+$("#fader").click(function() {	
+	$("#one").fadeOut( function() {	
+	alert("FadeOut complete!");	
+	});		
+});	
+
+$("#faderIn").click(function() {	
+	$("#one").fadeIn();	
+});	
+
+
+$("#square").click(function() {	
+	$(this).animate({	
+	width:"100px",	
+	height:"100px",	
+	borderRadius:"150px",		
+	},800);	
+});
+</script>
+</body>
+</html>
